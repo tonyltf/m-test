@@ -1,0 +1,16 @@
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  color: white;
+  background-color: cornflowerblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

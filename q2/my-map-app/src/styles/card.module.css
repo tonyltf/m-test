@@ -1,0 +1,9 @@
+.card {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid #AAA;
+  padding: 5px;
+  background-color: white;
+}
