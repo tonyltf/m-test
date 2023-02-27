@@ -26,4 +26,3 @@
 `docker run my-graph-app`
 
 # Q2
-
