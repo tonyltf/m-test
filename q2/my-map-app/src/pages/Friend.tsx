@@ -10,9 +10,9 @@ import styles from "../styles/friend.module.css";
 
 export default () => {
   let { id } = useParams();
-  const { people, setPeople } = usePeople();
+  const { people } = usePeople();
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: VITE_MAP_KEY, // ,
+    googleMapsApiKey: VITE_MAP_KEY,
   });
   const navigate = useNavigate();
   useEffect(() => {
