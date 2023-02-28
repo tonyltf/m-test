@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { useState } from "react";
 import Friends from "./pages/Friends";
 import Friend from "./pages/Friend";
 import { defaultPeople, IPeople } from "./interfaces/api";
@@ -32,7 +32,7 @@ export default () => {
         <Routes>
           <Route element={<PeopleContext />}>
             <Route path="friend/:id" index element={<Friend />} />
-            <Route path='*' element={<Friends />} />
+            <Route path="*" element={<Friends />} />
           </Route>
         </Routes>
       </BrowserRouter>
