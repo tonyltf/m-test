@@ -23,7 +23,7 @@ export default (props: any) => {
     if (people?._id !== id) {
       navigate("/");
     }
-  }, [])
+  }, []);
 
   const renderMap = () => {
     return (
@@ -47,15 +47,13 @@ export default (props: any) => {
           });
           console.log({ marker });
         }}
-      >
-
-      </GoogleMap>
+      ></GoogleMap>
     );
   };
 
   return (
     <>
-      {loadError? <div>{loadError.message}</div> : <></>}
+      {loadError ? <div>{loadError.message}</div> : <></>}
       <div className={styles.header}>
         <Link to="/" className={styles.back}>
           &lt;
@@ -64,7 +62,15 @@ export default (props: any) => {
       </div>
       {isLoaded ? renderMap() : <div>Loading...</div>}
       <div>
-        {people?._id && <Card id={people?._id || ''} firstName={people?.name.first || ''} lastName={people?.name.last || ''} picture={people?.picture} />}
+        {people?._id && (
+          <Card
+            id={people?._id || ""}
+            firstName={people?.name.first || ""}
+            lastName={people?.name.last || ""}
+            picture={people?.picture}
+            isLink={false}
+          />
+        )}
       </div>
     </>
   );

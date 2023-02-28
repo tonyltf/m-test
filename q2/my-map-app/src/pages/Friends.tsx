@@ -14,6 +14,7 @@ export default () => {
   const { people, setPeople } = usePeople();
 
   useEffect(() => {
+    console.log("useEffect");
     const fetchPeopleLlist = async () => {
       try {
         const response = await fetch(env.VITE_API_PATH, {
@@ -32,6 +33,7 @@ export default () => {
     fetchPeopleLlist();
   }, []);
 
+  console.log("Rendering Friends");
   return (
     <>
       <div className={styles.title}>ALL Friends</div>
@@ -49,9 +51,7 @@ export default () => {
               lastName={p.name.last}
               picture={p.picture}
               onClick={() => {
-                console.log("onClick", setPeople);
                 setPeople(p);
-                // selectPeople(p);
               }}
             />
           ))}

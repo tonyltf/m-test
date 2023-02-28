@@ -7,17 +7,31 @@ interface ICardProps {
   firstName: string;
   lastName: string;
   picture?: string;
+  isLink?: boolean;
   onClick?: () => void;
 }
 
-const Card = ({ id, firstName, lastName, picture, onClick }: ICardProps) => {
+const Card = ({
+  id,
+  firstName,
+  lastName,
+  picture,
+  onClick,
+  isLink = true,
+}: ICardProps) => {
   return (
-    <Link to={`friend/${id}`}>
+    isLink ? 
+    (<Link to={`friend/${id}`}>
       <div data-cy="card" className={styles.card} onClick={onClick}>
         <Avatar firstName={firstName} lastName={lastName} picture={picture} />
         <div>{`${firstName} ${lastName}`}</div>
       </div>
-    </Link>
+    </Link>)
+    : 
+      (<div data-cy="card" className={styles.card} onClick={onClick}>
+        <Avatar firstName={firstName} lastName={lastName} picture={picture} />
+        <div>{`${firstName} ${lastName}`}</div>
+      </div>)
   );
 };
 
