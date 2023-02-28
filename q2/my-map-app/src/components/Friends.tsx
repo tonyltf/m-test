@@ -25,7 +25,7 @@ export default () => {
 
   return (
     <>
-      <div>ALl Friends</div>
+      <div className={styles.title}>ALL Friends</div>
       <div className={styles.cardContainer}>
         {peopleList.map(people => <Card firstName={people.name.first} lastName={people.name.last} picture={people.picture} />)}
       </div>
