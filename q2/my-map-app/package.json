@@ -12,6 +12,7 @@
     "cypress:run": "cypress run --config video=false --component"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.18.1",
     "google-map-react": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
