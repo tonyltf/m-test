@@ -1,7 +1,3 @@
-.app {
-  background-color: #ccc;
-}
-
 .cardContainer {
   display: flex;
   flex-direction: column;
