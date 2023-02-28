@@ -4,7 +4,7 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
 import { usePeople } from "../App";
 import Card from "../components/Card";
-import { VITE_MAP_KEY } from '../environmentVariables'
+import { VITE_MAP_KEY } from "../environmentVariables";
 
 import styles from "../styles/friend.module.css";
 

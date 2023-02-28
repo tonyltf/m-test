@@ -4,7 +4,7 @@ import ReactPlaceholder from "react-placeholder";
 import Card from "../components/Card";
 import { IPeople } from "../interfaces/api";
 import { usePeople } from "../App";
-import { VITE_API_KEY, VITE_API_PATH } from '../environmentVariables'
+import { VITE_API_KEY, VITE_API_PATH } from "../environmentVariables";
 
 import styles from "../styles/friends.module.css";
 import "react-placeholder/lib/reactPlaceholder.css";
@@ -26,7 +26,7 @@ export default () => {
       } catch (e) {
         console.error(e);
       }
-    }
+    };
     fetchPeopleLlist();
   }, []);
 
