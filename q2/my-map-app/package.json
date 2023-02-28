@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "commit": "cz",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --config video=false --component"
+    "cypress:run": "cypress run --config video=false --component",
+    "cypress:run:e2e": "cypress run --config video=false"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",

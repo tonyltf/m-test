@@ -11,12 +11,12 @@ import {
   useOutletContext,
 } from "react-router-dom";
 
-export type PeopleContextType = {
+type PeopleContextType = {
   people: IPeople | null;
   setPeople: (p: IPeople) => {};
 };
 
-const Container = () => {
+const PeopleContext = () => {
   const [people, setPeople] = useState<IPeople | null>(defaultPeople);
   return (
     <>
@@ -26,24 +26,16 @@ const Container = () => {
 };
 
 export default () => {
-  // const selectPeople = (people: IPeople) => {
-  //   console.log('Set people at App level', { people });
-  //   setPeople(people);
-  // }
-
   return (
     <>
-      {/* <Friends /> */}
       <BrowserRouter>
         <Routes>
-          <Route element={<Container />}>
-            <Route path="/" element={<Friends />} />
+          <Route element={<PeopleContext />}>
             <Route path="friend/:id" index element={<Friend />} />
-            {/* </Route> */}
+            <Route path='*' element={<Friends />} />
           </Route>
         </Routes>
       </BrowserRouter>
-      {/* <Friend /> */}
     </>
   );
 };
