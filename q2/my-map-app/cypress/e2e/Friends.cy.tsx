@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import Friends from "../../src/pages/Friends";
 
 describe("Friends", () => {
@@ -6,7 +5,7 @@ describe("Friends", () => {
     cy.intercept("GET", "/templates/-xdNcNKYtTFG/data", {
       fixture: "friend.json",
     });
-    cy.mount(<Friends />);
+    cy.visit("http://localhost:5173/");
     cy.get("[data-cy=avatar]").children().should("have.length", 1);
     cy.get("[data-cy=card]").should("contain.text", "Tony Li");
   });

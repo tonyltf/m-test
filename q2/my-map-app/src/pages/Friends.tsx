@@ -14,7 +14,6 @@ export default () => {
   const { setPeople } = usePeople();
 
   useEffect(() => {
-    console.log("useEffect");
     const fetchPeopleLlist = async () => {
       try {
         const response = await fetch(VITE_API_PATH, {
@@ -23,17 +22,14 @@ export default () => {
           },
         });
         const result = await response.json();
-        console.log({ result });
-        // peopleContext.setPeople(result[0]);
         setPeopleList(result);
       } catch (e) {
         console.error(e);
       }
-    };
+    }
     fetchPeopleLlist();
   }, []);
 
-  console.log("Rendering Friends");
   return (
     <>
       <div className={styles.title}>ALL Friends</div>
