@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import Friends from "./Friends";
+import Friends from "../pages/Friends";
 
 describe("Friends", () => {
   it("display list frieneds with mock data", () => {

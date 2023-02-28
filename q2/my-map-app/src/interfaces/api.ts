@@ -1,4 +1,4 @@
-export interface IPeople{
+export interface IPeople {
   _id: string;
   name: {
     first: string;
@@ -11,3 +11,17 @@ export interface IPeople{
     longitude: number | null;
   };
 }
+
+export const defaultPeople = {
+  _id: "",
+  name: {
+    first: "",
+    last: "",
+  },
+  email: "",
+  picture: "",
+  location: {
+    latitude: null,
+    longitude: null,
+  },
+};
