@@ -1,12 +1,19 @@
 import Avatar from "./Avatar";
-import styles from "../styles/card.module.css"
+import styles from "../styles/card.module.css";
 
-const Card = (info) => {
-  const { firstName, lastName } = info;
-  return <div className={styles.card}>
-    <Avatar firstName={firstName} lastName={lastName} />
-    <div>{`${firstName} ${lastName}`}</div>
-  </div>;
+interface ICardProps {
+  firstName: string;
+  lastName: string;
+  picture?: string;
+}
+
+const Card = ({ firstName, lastName, picture }: ICardProps) => {
+  return (
+    <div data-cy="card" className={styles.card}>
+      <Avatar firstName={firstName} lastName={lastName} picture={picture} />
+      <div>{`${firstName} ${lastName}`}</div>
+    </div>
+  );
 };
 
 export default Card;
