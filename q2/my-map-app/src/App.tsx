@@ -1,5 +1,6 @@
+import { Suspense } from "react";
 import Friends from "./components/Friends";
 
-const env = import.meta.env;
-
-export default () => <Friends />;
+export default () => <Suspense fallback="Loading friends...">
+  <Friends />
+</Suspense> ;

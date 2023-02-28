@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Card from "./Card";
 import styles from "../styles/friends.module.css";
 import { IPeople } from "../interfaces/api";
+import ReactPlaceholder from 'react-placeholder';
+import "react-placeholder/lib/reactPlaceholder.css";
 
 const env = import.meta.env;
 
@@ -26,9 +28,11 @@ export default () => {
   return (
     <>
       <div className={styles.title}>ALL Friends</div>
-      <div className={styles.cardContainer}>
-        {peopleList.map(people => <Card firstName={people.name.first} lastName={people.name.last} picture={people.picture} />)}
-      </div>
+      <ReactPlaceholder ready={peopleList.length > 0} showLoadingAnimation={true} type='media'>
+        <div className={styles.cardContainer}>
+          {peopleList.map(people => <Card firstName={people.name.first} lastName={people.name.last} picture={people.picture} />)}
+        </div>
+      </ReactPlaceholder>
     </>
   );
 }

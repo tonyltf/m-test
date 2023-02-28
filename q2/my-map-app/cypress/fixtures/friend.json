@@ -1,0 +1,13 @@
+[{
+  "_id": "ae736d8f-5a08-4bab-8e30-1eb2079e5dc2",
+  "name": {
+    "last": "Li",
+    "first": "Tony"
+  },
+  "email": "tingfung.tony@gmail.com",
+  "picture": "https://placebear.com/225/210",
+  "location": {
+    "latitude": 22.38,
+    "longitude": null
+  }
+}]
