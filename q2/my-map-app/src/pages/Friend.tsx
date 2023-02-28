@@ -1,24 +1,20 @@
-// import GoogleMapReact from "google-map-react";
+import { useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { IPeople } from "../interfaces/api";
-import styles from "../styles/friend.module.css";
-// import { PeopleContext } from '../App';
-import { useCallback, useContext, useEffect } from "react";
-import { Link, useParams, redirect, useNavigate } from "react-router-dom";
 import { usePeople } from "../App";
 import Card from "../components/Card";
+import { VITE_MAP_KEY } from '../environmentVariables'
 
-const env = import.meta.env;
+import styles from "../styles/friend.module.css";
 
-export default (props: any) => {
+export default () => {
   let { id } = useParams();
   const { people, setPeople } = usePeople();
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: env.VITE_MAP_KEY, // ,
+    googleMapsApiKey: VITE_MAP_KEY, // ,
   });
   const navigate = useNavigate();
-  console.log({ people, id });
   useEffect(() => {
     if (people?._id !== id) {
       navigate("/");

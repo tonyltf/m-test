@@ -1,25 +1,25 @@
-import { createContext, useEffect, useState, useContext } from "react";
-import Card from "../components/Card";
-import styles from "../styles/friends.module.css";
-import { IPeople, defaultPeople } from "../interfaces/api";
+import { useEffect, useState } from "react";
 import ReactPlaceholder from "react-placeholder";
-import "react-placeholder/lib/reactPlaceholder.css";
-import { PeopleContextType, usePeople } from "../App";
-import { useOutletContext } from "react-router-dom";
 
-const env = import.meta.env;
+import Card from "../components/Card";
+import { IPeople } from "../interfaces/api";
+import { usePeople } from "../App";
+import { VITE_API_KEY, VITE_API_PATH } from '../environmentVariables'
+
+import styles from "../styles/friends.module.css";
+import "react-placeholder/lib/reactPlaceholder.css";
 
 export default () => {
   const [peopleList, setPeopleList] = useState<IPeople[]>([]);
-  const { people, setPeople } = usePeople();
+  const { setPeople } = usePeople();
 
   useEffect(() => {
     console.log("useEffect");
     const fetchPeopleLlist = async () => {
       try {
-        const response = await fetch(env.VITE_API_PATH, {
+        const response = await fetch(VITE_API_PATH, {
           headers: {
-            Authorization: `Bearer ${env.VITE_API_KEY}`,
+            Authorization: `Bearer ${VITE_API_KEY}`,
           },
         });
         const result = await response.json();
