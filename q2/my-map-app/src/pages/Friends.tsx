@@ -33,14 +33,23 @@ export default () => {
         setPeopleList(result);
       } else {
         if (response?.status === 429) {
-          const resetTime = parseInt(response?.headers?.get("x-ratelimit-reset") || '0', 10) ;
+          const resetTime = parseInt(
+            response?.headers?.get("x-ratelimit-reset") || "0",
+            10
+          );
           let retryAfter: number;
           if (resetTime > new Date().getTime() / 1000) {
             retryAfter = resetTime * 1000 - new Date().getTime();
           } else {
-            retryAfter = Math.pow(2, retryCount++) * 1000 + Math.random() * 1000 // exponential backoff;
+            // exponential backoff;
+            retryAfter =
+              Math.pow(2, retryCount++) * 1000 + Math.random() * 1000;
           }
-          Logger.log(`Reached rate limit, will be retry after ${retryAfter/1000} second(s)`);
+          Logger.log(
+            `Reached rate limit, will be retry after ${
+              retryAfter / 1000
+            } second(s)`
+          );
           setTimeout(fetchPeopleLlist, retryAfter);
         }
       }

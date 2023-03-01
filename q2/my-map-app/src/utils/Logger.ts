@@ -1,6 +1,6 @@
 interface ILogger {
-  log: (...data: any[]) => void,
-  error: (...data: any[]) => void,
+  log: (...data: any[]) => void;
+  error: (...data: any[]) => void;
 }
 
 const Logger = (): ILogger => {
@@ -8,7 +8,6 @@ const Logger = (): ILogger => {
     log: console.log,
     error: console.error,
   };
-}
+};
 
 export default Logger();
-
