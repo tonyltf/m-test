@@ -19,18 +19,20 @@ const Card = ({
   onClick,
   isLink = true,
 }: ICardProps) => {
-  return isLink ? (
-    <Link to={`friend/${id}`}>
-      <div data-cy="card" className={styles.card} onClick={onClick}>
-        <Avatar firstName={firstName} lastName={lastName} picture={picture} />
-        <div>{`${firstName} ${lastName}`}</div>
-      </div>
-    </Link>
-  ) : (
+
+  const CardContent = () => (
     <div data-cy="card" className={styles.card} onClick={onClick}>
       <Avatar firstName={firstName} lastName={lastName} picture={picture} />
       <div>{`${firstName} ${lastName}`}</div>
     </div>
+  );
+
+  return isLink ? (
+    <Link to={`friend/${id}`}>
+      <CardContent />
+    </Link>
+  ) : (
+    <CardContent />
   );
 };
 
