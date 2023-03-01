@@ -5,11 +5,10 @@ import Card from "../components/Card";
 import { IPeople, defaultPeople } from "../interfaces/people";
 import { VITE_API_KEY, VITE_API_PATH } from "../environmentVariables";
 import usePeople from "../hooks/People";
+import HttpRequest from "../utils/Request";
 
 import styles from "../styles/friends.module.css";
 import "react-placeholder/lib/reactPlaceholder.css";
-import Logger from "../utils/Logger";
-import HttpRequest from "../utils/Request";
 
 export default () => {
   const [peopleList, setPeopleList] = useState<IPeople[]>([]);
