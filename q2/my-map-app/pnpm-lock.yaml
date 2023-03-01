@@ -6,6 +6,7 @@ specifiers:
   "@types/jest": ^29.4.0
   "@types/react": ^18.0.27
   "@types/react-dom": ^18.0.10
+  "@types/use-persisted-state": ^0.3.1
   "@typescript-eslint/eslint-plugin": ^5.0.0
   "@vitejs/plugin-react-swc": ^3.0.0
   commitizen: ^4.3.0
@@ -22,6 +23,7 @@ specifiers:
   react-placeholder: ^4.1.0
   react-router-dom: ^6.8.2
   typescript: ^4.9.5
+  use-persisted-state: ^0.3.3
   vite: ^4.1.0
   vite-plugin-eslint: ^1.8.1
 
@@ -32,12 +34,14 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-placeholder: 4.1.0_react@18.2.0
   react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+  use-persisted-state: 0.3.3_react@18.2.0
 
 devDependencies:
   "@types/google-map-react": 2.1.7
   "@types/jest": 29.4.0
   "@types/react": 18.0.28
   "@types/react-dom": 18.0.11
+  "@types/use-persisted-state": 0.3.1
   "@typescript-eslint/eslint-plugin": 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
   "@vitejs/plugin-react-swc": 3.2.0_vite@4.1.4
   commitizen: 4.3.0
@@ -1041,6 +1045,15 @@ packages:
       }
     dev: true
 
+  /@types/use-persisted-state/0.3.1:
+    resolution:
+      {
+        integrity: sha512-GZtzdCPeR+KZfrzKrVLnbpRcHSCVDHaFCJ0QtkXDAmh5M+eUJqGquFtN+eUOvAMIjwLgTZ2zKq0/JL+e1/gf8g==,
+      }
+    dependencies:
+      "@types/react": 18.0.28
+    dev: true
+
   /@types/yargs-parser/21.0.0:
     resolution:
       {
@@ -1220,6 +1233,17 @@ packages:
       "@typescript-eslint/types": 5.54.0
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@use-it/event-listener/0.1.7_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-hgfExDzUU9uTRTPDCpw2s9jWTxcxmpJya3fK5ADpf5VDpSy8WYwY/kh28XE0tUcbsljeP8wfan48QvAQTSSa3Q==,
+      }
+    peerDependencies:
+      react: ">=16.8.0"
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@vitejs/plugin-react-swc/3.2.0_vite@4.1.4:
     resolution:
@@ -5463,6 +5487,18 @@ packages:
     dependencies:
       punycode: 2.3.0
     dev: true
+
+  /use-persisted-state/0.3.3_react@18.2.0:
+    resolution:
+      {
+        integrity: sha512-pCNlvYC8+XjRxwnIut4teGC9f2p9aD88R8OGseQGZa2dvqG/h1vEGk1vRE1IZG0Vf161UDpn+NlW4+UGubQflQ==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      "@use-it/event-listener": 0.1.7_react@18.2.0
+      react: 18.2.0
+    dev: false
 
   /util-deprecate/1.0.2:
     resolution:

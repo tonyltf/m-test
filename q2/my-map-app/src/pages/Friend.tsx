@@ -2,19 +2,20 @@ import { useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 
-import { usePeople } from "../App";
 import Card from "../components/Card";
 import { VITE_MAP_KEY } from "../environmentVariables";
 
 import styles from "../styles/friend.module.css";
+import usePersistedPeople from "../hooks/People";
 
 export default () => {
   let { id } = useParams();
-  const { people } = usePeople();
+  const { people } = usePersistedPeople();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: VITE_MAP_KEY,
   });
   const navigate = useNavigate();
+
   useEffect(() => {
     if (people?._id !== id) {
       navigate("/");
@@ -56,7 +57,7 @@ export default () => {
         </Link>
         <div className={styles.title}>Yours Friends</div>
       </div>
-      {isLoaded ? renderMap() : <div>Loading...</div>}
+      {isLoaded ? renderMap() : <div>Loading map...</div>}
       <div>
         {people?._id && (
           <Card

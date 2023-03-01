@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 import ReactPlaceholder from "react-placeholder";
 
 import Card from "../components/Card";
-import { IPeople } from "../interfaces/api";
-import { usePeople } from "../App";
+import { IPeople, defaultPeople } from "../interfaces/api";
 import { VITE_API_KEY, VITE_API_PATH } from "../environmentVariables";
+import usePersistedPeople from "../hooks/People";
 
 import styles from "../styles/friends.module.css";
 import "react-placeholder/lib/reactPlaceholder.css";
 
 export default () => {
   const [peopleList, setPeopleList] = useState<IPeople[]>([]);
-  const { setPeople } = usePeople();
+
+  const { setPersistedPeople } = usePersistedPeople(defaultPeople);
 
   useEffect(() => {
     const fetchPeopleLlist = async () => {
@@ -47,7 +48,7 @@ export default () => {
               lastName={p.name.last}
               picture={p.picture}
               onClick={() => {
-                setPeople(p);
+                setPersistedPeople(p);
               }}
             />
           ))}
