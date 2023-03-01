@@ -9,50 +9,21 @@ import usePeople from "../hooks/People";
 import styles from "../styles/friends.module.css";
 import "react-placeholder/lib/reactPlaceholder.css";
 import Logger from "../utils/Logger";
+import HttpRequest from "../utils/Request";
 
 export default () => {
   const [peopleList, setPeopleList] = useState<IPeople[]>([]);
   const { setPersistedPeople } = usePeople(defaultPeople);
 
   useEffect(() => {
-    let retryCount = 0;
     const fetchPeopleLlist = async () => {
-      let response;
-      try {
-        response = await fetch(VITE_API_PATH, {
-          headers: {
-            Authorization: `Bearer ${VITE_API_KEY}`,
-          },
-        });
-      } catch (e) {
-        Logger.error(e);
-      }
-
-      if (response?.ok) {
-        const result = await response.json();
-        setPeopleList(result);
-      } else {
-        if (response?.status === 429) {
-          const resetTime = parseInt(
-            response?.headers?.get("x-ratelimit-reset") || "0",
-            10
-          );
-          let retryAfter: number;
-          if (resetTime > new Date().getTime() / 1000) {
-            retryAfter = resetTime * 1000 - new Date().getTime();
-          } else {
-            // exponential backoff;
-            retryAfter =
-              Math.pow(2, retryCount++) * 1000 + Math.random() * 1000;
-          }
-          Logger.log(
-            `Reached rate limit, will be retry after ${
-              retryAfter / 1000
-            } second(s)`
-          );
-          setTimeout(fetchPeopleLlist, retryAfter);
-        }
-      }
+      const response = await HttpRequest(VITE_API_PATH, {
+        headers: {
+          Authorization: `Bearer ${VITE_API_KEY}`,
+        },
+      });
+      const result = await response?.json();
+      setPeopleList(result);
     };
     fetchPeopleLlist();
   }, []);
