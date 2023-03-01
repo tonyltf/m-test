@@ -10,7 +10,6 @@ import styles from "../styles/friends.module.css";
 import "react-placeholder/lib/reactPlaceholder.css";
 
 export default () => {
-
   const [peopleList, setPeopleList] = useState<IPeople[]>([]);
   const { setPersistedPeople } = usePeople(defaultPeople);
 

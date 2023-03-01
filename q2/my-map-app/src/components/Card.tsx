@@ -13,13 +13,12 @@ interface ICardProps {
 
 const Card = ({
   id,
-  firstName,
-  lastName,
+  firstName = "",
+  lastName = "",
   picture,
   onClick,
   isLink = true,
 }: ICardProps) => {
-
   const CardContent = () => (
     <div data-cy="card" className={styles.card} onClick={onClick}>
       <Avatar firstName={firstName} lastName={lastName} picture={picture} />
