@@ -32,7 +32,14 @@
 ## Test (Q2)
 
 Component test: `npm run cypress:run`
-E2E test (with app running on localhost:5173 )`npm run cypress:run:e2e`
+
+E2E test:
+
+`npm run dev`
+
+`npm run cypress:run:e2e`
+
+Note: it is suggested to set the local development server ourselves for testing - `https://docs.cypress.io/guides/end-to-end-testing/testing-your-app`
 
 ## Docker (Q2)
 
@@ -52,6 +59,5 @@ E2E test (with app running on localhost:5173 )`npm run cypress:run:e2e`
   - if the API allows pagination, i.e. limit & offset paramters, we can limit the API request each time and do pagination with
     - next / previous page button
     - auto loading when user scrolls to bottom
-- When user refresh on the people detail page, or directly access the page, we can keep user in the detail page
-  - if we use localStorage or any other way to store the user clicked people info
-  - if the API supports getting single friend for example `GET /:id`
+- When user directly access the friend detail page, we only have the latest select people info
+  - if the API supports getting single friend for example `GET /:id`, it can get individual people from the API
