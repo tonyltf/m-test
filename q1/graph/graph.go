@@ -59,11 +59,15 @@ func (p *Path) FindNextNodes(g *Graph, current Node, end Node, exitOnEnd bool) [
 	paths := make([]Path, 0)
 	for _, next := range g.Nodes[current] {
 		if !p.cotainsNode(next.Node) {
+			// for each non-vistied nodes next to currecnt node, visit the next node
 			newNode := append(p.Nodes, *next.Node)
 			newPath := Path{p.Length + next.Weight, newNode}
+			// if the next node is the target end node and wants to stop the search, exit the recursion / loop
 			if exitOnEnd == true && *next.Node == end {
 				return []Path{newPath}
 			}
+			// extend the struct array for each new path to be visited
+			// if X new nodes linked, the path array length will be increased by X
 			paths = append(paths, newPath.FindNextNodes(g, *next.Node, end, exitOnEnd)...)
 		}
 	}
