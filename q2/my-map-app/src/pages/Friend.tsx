@@ -6,11 +6,11 @@ import Card from "../components/Card";
 import { VITE_MAP_KEY } from "../environmentVariables";
 
 import styles from "../styles/friend.module.css";
-import usePersistedPeople from "../hooks/People";
+import usePeople from "../hooks/People";
 
 export default () => {
   let { id } = useParams();
-  const { people } = usePersistedPeople();
+  const { people } = usePeople();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: VITE_MAP_KEY,
   });

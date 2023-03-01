@@ -2,7 +2,7 @@ import createPersistedState from "use-persisted-state";
 import { IPeople, defaultPeople } from "../interfaces/api";
 const usePeopleState = createPersistedState<IPeople>("people");
 
-const usePersistedPeople = (initialPeople = defaultPeople) => {
+const usePeople = (initialPeople = defaultPeople) => {
   const [people, setPeople] = usePeopleState(initialPeople);
 
   return {
@@ -11,4 +11,4 @@ const usePersistedPeople = (initialPeople = defaultPeople) => {
   };
 };
 
-export default usePersistedPeople;
+export default usePeople;
