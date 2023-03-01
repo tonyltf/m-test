@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ReactPlaceholder from "react-placeholder";
 
 import Card from "../components/Card";
-import { IPeople, defaultPeople } from "../interfaces/api";
+import { IPeople, defaultPeople } from "../interfaces/people";
 import { VITE_API_KEY, VITE_API_PATH } from "../environmentVariables";
 import usePeople from "../hooks/People";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Friends from "./pages/Friends";
 import Friend from "./pages/Friend";
-import { defaultPeople, IPeople } from "./interfaces/api";
+import { defaultPeople, IPeople } from "./interfaces/people";
 
 import {
   BrowserRouter,
